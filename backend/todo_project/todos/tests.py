@@ -1,7 +1,10 @@
 from django.test import TestCase
 from .models import Todo
 
-@classmethod
+
+class TodoModelTests(TestCase):
+
+    @classmethod
     def setUpTestData(cls):
         Todo.objects.create(title='first todo', body='a body here')
 
@@ -13,4 +16,4 @@ from .models import Todo
     def test_body_content(self):
         todo = Todo.objects.get(id=1)
         expected_object_name = f'{todo.body}'
-        self.assertEquals(expected_object_name, 'a body here')from django.test import TestCase
+        self.assertEquals(expected_object_name, 'a body here')
